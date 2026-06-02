@@ -38,7 +38,7 @@ const firebaseLogin = async (req, res, next) => {
     });
   } catch (error) {
     if (error.code?.startsWith("auth/")) {
-      return res.status(401).json({ error: `Firebase error: ${error.code} - ${error.message}` });
+      return res.status(401).json({ error: "Token de Firebase inválido o expirado" });
     }
     next(error);
   }
